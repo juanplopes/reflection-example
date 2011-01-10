@@ -26,9 +26,12 @@ namespace ReflectionExample
 
         public object Read(TextReader reader)
         {
+            var line = reader.ReadLine();
+            if (line == null) return null;
+
             var obj = type.CreateInstance();
             foreach (var property in type.Properties)
-                property.ReadFrom(reader.ReadLine(), obj);
+                property.ReadFrom(line, obj);
 
             return obj;
         }

@@ -6,6 +6,7 @@ using System.Globalization;
 
 namespace ReflectionExample
 {
+    [AttributeUsage(AttributeTargets.Property)]
     public class DateFieldAttribute : FieldAttribute
     {
         string format;
