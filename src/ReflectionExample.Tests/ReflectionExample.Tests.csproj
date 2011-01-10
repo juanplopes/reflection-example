@@ -50,9 +50,11 @@
     <Compile Include="..\GlobalInfo.cs">
       <Link>Properties\GlobalInfo.cs</Link>
     </Compile>
+    <Compile Include="DateFieldAttributeTests.cs" />
     <Compile Include="PropertyWrapperTests.cs" />
     <Compile Include="FieldAttributeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Samples\DateValues.cs" />
     <Compile Include="Samples\SimpleValues.cs" />
     <Compile Include="TypeWrapperTests.cs" />
   </ItemGroup>

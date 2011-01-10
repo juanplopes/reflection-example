@@ -49,6 +49,7 @@
     <Compile Include="..\GlobalInfo.cs">
       <Link>Properties\GlobalInfo.cs</Link>
     </Compile>
+    <Compile Include="DateFieldAttribute.cs" />
     <Compile Include="FieldAttribute.cs" />
     <Compile Include="FixedColumnsSerializer.cs" />
     <Compile Include="IField.cs" />
