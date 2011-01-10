@@ -17,10 +17,10 @@ namespace ReflectionExample
         public TypeWrapper(Type type)
         {
             this.type = type;
-            this.properties = ExtractPropreries(type);
+            this.properties = ExtractProperties(type);
         }
 
-        private static IList<PropertyWrapper> ExtractPropreries(Type type)
+        private static IList<PropertyWrapper> ExtractProperties(Type type)
         {
             return type.GetProperties()
                 .Select(x => new PropertyWrapper(x))

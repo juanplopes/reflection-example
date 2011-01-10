@@ -10,6 +10,8 @@ namespace ReflectionExample
     public class FixedColumnsSerializer
     {
         TypeWrapper type;
+        protected TypeWrapper Type { get { return type; } }
+
         public FixedColumnsSerializer(Type type)
         {
             this.type = new TypeWrapper(type);

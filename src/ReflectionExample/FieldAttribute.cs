@@ -25,7 +25,6 @@ namespace ReflectionExample
             var stringValue = ConvertToString(value);
 
             builder.Length = Math.Max(builder.Length, end);
-
             WriteString(builder, stringValue);
             WriteSpaces(builder, stringValue);
         }

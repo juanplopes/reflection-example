@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ReflectionExample.DateFieldAttribute">
+    <Position X="0.75" Y="3.75" Width="2.5" />
+    <Members>
+      <Method Name="ConvertFromString" Hidden="true" />
+      <Method Name="ConvertToString" Hidden="true" />
+      <Field Name="format" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAACEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DateFieldAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReflectionExample.FieldAttribute">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <Members>
+      <Method Name="ConvertFromString" Hidden="true" />
+      <Method Name="ConvertToString" Hidden="true" />
+      <Field Name="end" Hidden="true" />
+      <Method Name="ReadFrom" Hidden="true" />
+      <Property Name="Size" Hidden="true" />
+      <Field Name="start" Hidden="true" />
+      <Property Name="Trim" Hidden="true" />
+      <Method Name="WriteSpaces" Hidden="true" />
+      <Method Name="WriteString" Hidden="true" />
+      <Method Name="WriteTo" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgCAAAAgAAgAgAIAEAgAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>FieldAttribute.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ReflectionExample.FixedColumnsSerializer">
+    <Position X="4" Y="1.5" Width="2" />
+    <Members>
+      <Method Name="FixedColumnsSerializer" Hidden="true" />
+      <Field Name="type" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAABAAAAAQAAAAEAAAA=</HashCode>
+      <FileName>FixedColumnsSerializer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ReflectionExample.PropertyWrapper">
+    <Position X="7" Y="3" Width="1.5" />
+    <Members>
+      <Method Name="ExtractFieldAttribute" Hidden="true" />
+      <Field Name="fieldDescriptor" Hidden="true" />
+      <Field Name="property" Hidden="true" />
+      <Method Name="PropertyWrapper" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAQgAAAAAAAgAQAAIAAAAAE=</HashCode>
+      <FileName>PropertyWrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReflectionExample.TypeWrapper">
+    <Position X="4.25" Y="3.5" Width="1.5" />
+    <Members>
+      <Method Name="ExtractProperties" Hidden="true" />
+      <Field Name="properties" Hidden="true" />
+      <Field Name="type" Hidden="true" />
+      <Method Name="TypeWrapper" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAIABAAAAAAAAAAAAAAAAAAAAAAhAAAAAAAAAAACAAA=</HashCode>
+      <FileName>TypeWrapper.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Properties" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Interface Name="ReflectionExample.IField" Collapsed="true">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>IField.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -64,6 +64,14 @@ namespace ReflectionExample.Tests
         }
 
         [Test]
+        public void CanReadSingleStringWithoutTrim()
+        {
+            var attr = new FieldAttribute(5, 10) { Trim = false };
+            var str = "\0\0\0\050    ";
+            attr.ReadFrom(str, typeof(string)).Should().Be("50    ");
+        }
+
+        [Test]
         public void CanReadSingleIntInALessThan10CharsString()
         {
             var attr = new FieldAttribute(5, 10);
