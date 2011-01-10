@@ -12,6 +12,7 @@ namespace ReflectionExample
         private IField fieldDescriptor;
         
         public bool IsValid { get { return fieldDescriptor != null; } }
+        public string Name { get { return property.Name; } }
 
         public PropertyWrapper(PropertyInfo property)
         {

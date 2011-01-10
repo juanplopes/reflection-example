@@ -12,5 +12,7 @@ namespace ReflectionExample.Tests.Samples
 
         [Field(6, 10)]
         public string SecondValue { get; set; }
+
+        public DateTime NotIncluded { get; set; }
     }
 }
