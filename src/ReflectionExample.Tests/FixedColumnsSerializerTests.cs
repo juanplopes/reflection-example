@@ -37,6 +37,20 @@ namespace ReflectionExample.Tests
             str.ToString().Should().Be("1    2    \n3    44444\n");
         }
 
+        [Test]
+        public void CanWriteAllSimpleValueIntoStream()
+        {
+            var str = new StringWriter();
+            str.NewLine = "\n";
+            var serializer = new FixedColumnsSerializer(typeof(SimpleValues));
+
+            serializer.WriteAll(str, new[] {
+                new SimpleValues() { FirstValue = 1, SecondValue = "2" } ,
+                new SimpleValues() { FirstValue = 3, SecondValue = "444444" }
+            });
+
+            str.ToString().Should().Be("1    2    \n3    44444\n");
+        }
 
         [Test]
         public void CanReadNullValueFromEmptyStream()
@@ -46,7 +60,7 @@ namespace ReflectionExample.Tests
 
             serializer.Read(str).Should().Be.Null();
         }
-       
+
         [Test]
         public void CanReadOneSimpleValueFromStream()
         {
@@ -88,6 +102,22 @@ namespace ReflectionExample.Tests
             obj2.And.ValueOf.SecondValue.Should().Be("44444");
 
             serializer.Read(str).Should().Be.Null();
+        }
+
+        [Test]
+        public void CanReadAllSimpleValueFromStream()
+        {
+            var str = new StringReader("1    2    \n3    44444\n");
+            var serializer = new FixedColumnsSerializer(typeof(SimpleValues));
+
+            var list = serializer.ReadAll(str).OfType<SimpleValues>().ToArray();
+            list.Should().Have.Count.EqualTo(2);
+
+            list[0].FirstValue.Should().Be(1);
+            list[0].SecondValue.Should().Be("2");
+
+            list[1].FirstValue.Should().Be(3);
+            list[1].SecondValue.Should().Be("44444");
         }
     }
 }

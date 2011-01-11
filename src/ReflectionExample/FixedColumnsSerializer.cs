@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Collections;
 
 namespace ReflectionExample
 {
@@ -17,6 +18,12 @@ namespace ReflectionExample
             this.type = new TypeWrapper(type);
         }
 
+        public void WriteAll(TextWriter writer, IEnumerable objs)
+        {
+            foreach (var obj in objs)
+                Write(writer, obj);
+        }
+
         public void Write(TextWriter writer, object obj)
         {
             var builder = new StringBuilder();
@@ -24,6 +31,12 @@ namespace ReflectionExample
                 property.WriteTo(builder, obj);
 
             writer.WriteLine(builder);
+        }
+
+        public IEnumerable ReadAll(TextReader writer)
+        {
+            for (object obj = Read(writer); obj != null; obj = Read(writer))
+                yield return obj;
         }
 
         public object Read(TextReader reader)
