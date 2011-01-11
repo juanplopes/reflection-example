@@ -9,10 +9,10 @@ namespace ReflectionExample.Listagens
     {
         public static void Test()
         {
-            var abc = "abc";
+            var foo = new Foo();
 
-            var stringType1 = abc.GetType(); //string
-            var stringType2 = typeof(string); //string
+            var type1 = foo.GetType();
+            var type2 = typeof(Foo);
         }
     }
 }

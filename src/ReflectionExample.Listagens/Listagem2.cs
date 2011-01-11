@@ -7,14 +7,18 @@ using System.Collections;
 
 namespace ReflectionExample.Listagens
 {
-    public class Listagem0B
+    public class Listagem2
     {
         public static void Test()
         {
-            Console.WriteLine("Todos os métodos da classe Foo:");
+var type = typeof(Foo);
+var method = type.GetMethod("Bar");
+var foo = new Foo();
 
-            foreach (var method in typeof(Foo).GetMethods())
-                Console.WriteLine(method.Name);
+var resultado = method.Invoke(foo, new object[] { 3 });
+
+Console.WriteLine(resultado);
+
         }
     }
 }

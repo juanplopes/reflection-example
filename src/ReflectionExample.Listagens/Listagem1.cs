@@ -7,19 +7,14 @@ using System.Collections;
 
 namespace ReflectionExample.Listagens
 {
-    public class Listagem1
+    public class Foo
     {
-        public static void Test()
+        public int FieldA;
+        public int PropertyA { get; set; }
+
+        public string Bar(int parameter)
         {
-var type = typeof(string);
-var method = type.GetMethod("Substring", new[] { typeof(int) });
-
-var str = "abcdefghij";
-var resultado = (string)method.Invoke(str, new object[] { 3 });
-
-Console.WriteLine(resultado);
-
-
+            return "abc";
         }
     }
 }

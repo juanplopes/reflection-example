@@ -46,7 +46,11 @@
     <Compile Include="..\GlobalInfo.cs">
       <Link>Properties\GlobalInfo.cs</Link>
     </Compile>
+    <Compile Include="Listagem5.cs" />
+    <Compile Include="Listagem4.cs" />
+    <Compile Include="Listagem3.cs" />
     <Compile Include="Listagem1.cs" />
+    <Compile Include="Listagem2.cs" />
     <Compile Include="Listagem0B.cs" />
     <Compile Include="Listagem0A.cs" />
     <Compile Include="Program.cs" />

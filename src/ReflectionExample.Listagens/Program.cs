@@ -9,7 +9,7 @@ namespace ReflectionExample.Listagens
     {
         static void Main()
         {
-            Listagem1.Test();
+            Listagem4.Test();
             Console.ReadLine();
         }
     }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionExample.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionExample.Listagens", "ReflectionExample.Listagens\ReflectionExample.Listagens.csproj", "{867F1B74-E228-4CD5-B768-D861F0C2D8D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionExample.UI", "ReflectionExample.UI\ReflectionExample.UI.csproj", "{94689225-FF7E-4A84-8E03-55C3F958700B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,8 @@ Global
 		{867F1B74-E228-4CD5-B768-D861F0C2D8D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{867F1B74-E228-4CD5-B768-D861F0C2D8D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{867F1B74-E228-4CD5-B768-D861F0C2D8D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94689225-FF7E-4A84-8E03-55C3F958700B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{94689225-FF7E-4A84-8E03-55C3F958700B}.Release|Any CPU.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
