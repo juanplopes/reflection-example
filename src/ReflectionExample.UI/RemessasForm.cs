@@ -13,23 +13,64 @@ namespace ReflectionExample.UI
 {
     public partial class RemessasForm : Form
     {
+        string openFilePath = null;
+        FixedColumnsSerializer serializer = new FixedColumnsSerializer(typeof(Remessa));
+
         public RemessasForm()
         {
             InitializeComponent();
-            remessas.DataSource = new List<Remessa>();
+            NewFile();
         }
 
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var serializer = new FixedColumnsSerializer(typeof(Remessa));
+            dataGridView1.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            if (openFilePath == null && saveFile.ShowDialog() == DialogResult.OK)
+                openFilePath = saveFile.FileName;
 
-            using (var file = File.CreateText("test.txt"))
-                foreach (Remessa remessa in remessas.DataSource as IEnumerable)
-                    serializer.Write(file, remessa);
-
-
-
-
+            if (openFilePath != null)
+            {
+                SaveFile(openFilePath);
+                OpenFile(openFilePath);
+            }
         }
+
+
+
+        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFile.ShowDialog() == DialogResult.OK)
+                OpenFile(openFile.FileName);
+        }
+
+        private void novoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewFile();
+        }
+
+        private void SaveFile(string fileName)
+        {
+            using (var file = File.CreateText(fileName))
+                serializer.WriteAll(file, remessas.DataSource as IEnumerable);
+        }
+
+        private void OpenFile(string fileName)
+        {
+            openFilePath = fileName;
+            this.Text = openFilePath;
+
+            using (var file = File.OpenText(openFilePath))
+                remessas.DataSource = serializer.ReadAll(file);
+        }
+
+        private void NewFile()
+        {
+            openFilePath = null;
+            this.Text = "novo";
+            remessas.DataSource = new List<Remessa>();
+        }
+
+       
+
     }
 }

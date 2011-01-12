@@ -33,10 +33,13 @@ namespace ReflectionExample
             writer.WriteLine(builder);
         }
 
-        public IEnumerable ReadAll(TextReader writer)
+        public IEnumerable ReadAll(TextReader reader)
         {
-            for (object obj = Read(writer); obj != null; obj = Read(writer))
-                yield return obj;
+            var list = new List<object>();
+            for (object obj = Read(reader); obj != null; obj = Read(reader))
+                list.Add(obj);
+
+            return list;
         }
 
         public object Read(TextReader reader)
