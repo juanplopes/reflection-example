@@ -12,26 +12,23 @@ namespace ReflectionExample.Tests
     public class TypeWrapperTests
     {
         [Test]
-        public void CanListAllProperties()
+        public void CanWriteSimpleValues()
         {
-            var type = new TypeWrapper(typeof(SimpleValues));
+            var prop = new TypeWrapper(typeof(SimpleValues));
 
-            type.Properties.Select(x => x.Name)
-                .Should().Have.SameValuesAs("FirstValue", "SecondValue");
+            prop.WriteFrom(new SimpleValues() { FirstValue = 50, SecondValue = "42" })
+                .Should().Be("50   42   ");
         }
 
         [Test]
-        public void CreateInstanceCreatesANewInstance()
+        public void CanReadSimpleValues()
         {
-            var type = new TypeWrapper(typeof(SimpleValues));
+            var prop = new TypeWrapper(typeof(SimpleValues));
 
-            var obj1 = type.CreateInstance();
-            var obj2 = type.CreateInstance();
-
-            obj1.Should().Be.OfType<SimpleValues>();
-            obj2.Should().Be.OfType<SimpleValues>();
-            obj1.Should().Not.Be(obj2);
-
+            var obj = prop.ReadFrom("50   42   ").Should().Be.OfType<SimpleValues>().And.ValueOf;
+            obj.FirstValue.Should().Be(50);
+            obj.SecondValue.Should().Be("42");
         }
+       
     }
 }

@@ -26,11 +26,7 @@ namespace ReflectionExample
 
         public void Write(TextWriter writer, object obj)
         {
-            var builder = new StringBuilder();
-            foreach (var property in type.Properties)
-                property.WriteTo(builder, obj);
-
-            writer.WriteLine(builder);
+            writer.WriteLine(type.WriteFrom(obj));
         }
 
         public IEnumerable ReadAll(TextReader reader)
@@ -47,11 +43,7 @@ namespace ReflectionExample
             var line = reader.ReadLine();
             if (line == null) return null;
 
-            var obj = type.CreateInstance();
-            foreach (var property in type.Properties)
-                property.ReadFrom(line, obj);
-
-            return obj;
+            return type.ReadFrom(line);
         }
     }
 }

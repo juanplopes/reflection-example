@@ -67,12 +67,9 @@
       <Method Name="TypeWrapper" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAIABAAAAAAAAAAAAAAAAAAAAAAhAAAAAAAAAAACAAA=</HashCode>
+      <HashCode>AAIABAAEAAAAAAAAAAAQAAAgAAAhAAAgAAAAAAAAAAA=</HashCode>
       <FileName>TypeWrapper.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Properties" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Interface Name="ReflectionExample.IField" Collapsed="true">
     <Position X="1.25" Y="0.75" Width="1.5" />
