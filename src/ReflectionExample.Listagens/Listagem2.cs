@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Collections;
+using System.ComponentModel;
 
 namespace ReflectionExample.Listagens
 {
@@ -11,14 +12,11 @@ namespace ReflectionExample.Listagens
     {
         public static void Test()
         {
-var type = typeof(Foo);
-var method = type.GetMethod("Bar");
-var foo = new Foo();
-
-var resultado = method.Invoke(foo, new object[] { 3 });
-
-Console.WriteLine(resultado);
-
+            var propA = typeof(Foo).GetProperty("PropertyA");
+            var attribute = propA
+                .GetCustomAttributes(typeof(DescriptionAttribute), true)
+                .OfType<DescriptionAttribute>().First();
+            Console.WriteLine(attribute.Description);
         }
     }
 }

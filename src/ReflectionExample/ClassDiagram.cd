@@ -21,7 +21,6 @@
       <Method Name="ReadFrom" Hidden="true" />
       <Property Name="Size" Hidden="true" />
       <Field Name="start" Hidden="true" />
-      <Property Name="Trim" Hidden="true" />
       <Method Name="WriteSpaces" Hidden="true" />
       <Method Name="WriteString" Hidden="true" />
       <Method Name="WriteTo" Hidden="true" />
@@ -39,7 +38,7 @@
       <Field Name="type" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAABAAAAAQAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAgAAABAAAAAQAAAAEAAAA=</HashCode>
       <FileName>FixedColumnsSerializer.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -55,7 +54,7 @@
       <Method Name="PropertyWrapper" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAgAAAQgAAAAAAAgAQAAIAAAAAE=</HashCode>
+      <HashCode>AAAAAAAEAAAAAAAAAAgAAASgAAAAAAAgAQAAIAAAAAk=</HashCode>
       <FileName>PropertyWrapper.cs</FileName>
     </TypeIdentifier>
   </Class>

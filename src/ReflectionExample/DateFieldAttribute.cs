@@ -18,7 +18,7 @@ namespace ReflectionExample
             this.format = format;
         }
 
-        protected override object ConvertFromString(Type type, string stringValue)
+        protected override object ConvertFromString(string stringValue, Type type)
         {
             if (format != null)
                 return DateTime.ParseExact(stringValue, format, CultureInfo.InvariantCulture);

@@ -29,13 +29,8 @@ namespace ReflectionExample.UI
                 openFilePath = saveFile.FileName;
 
             if (openFilePath != null)
-            {
                 SaveFile(openFilePath);
-                OpenFile(openFilePath);
-            }
         }
-
-
 
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -52,6 +47,8 @@ namespace ReflectionExample.UI
         {
             using (var file = File.CreateText(fileName))
                 serializer.WriteAll(file, remessas.DataSource as IEnumerable);
+
+            OpenFile(fileName);
         }
 
         private void OpenFile(string fileName)

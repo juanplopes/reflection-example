@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Collections;
+using System.Diagnostics;
 using System.Linq.Expressions;
 
 namespace ReflectionExample.Listagens
@@ -12,18 +13,24 @@ namespace ReflectionExample.Listagens
     {
         public static void Test()
         {
-            var propA = typeof(Foo).GetProperty("PropertyA");
+            var foo = new Foo();
+            var bar = typeof(Foo).GetMethod("Bar");
 
-            var foo = Expression.Parameter(typeof(Foo));
-            var value = Expression.Parameter(typeof(int));
+            var param = Expression.Parameter(typeof(int));
+            var call = Expression.Call(Expression.Constant(foo), bar, param);
+            var lambda = Expression.Lambda<Func<int, string>>(call, param).Compile();
 
-            var assign = Expression.Assign(Expression.Property(foo, propA), value);
-            var lambda = Expression.Lambda<Action<Foo, int>>(assign, foo, value).Compile();
+            var s = Stopwatch.StartNew();
+            for (int i = 0; i < 5000000; i++)
+                foo.Bar(i);
 
-            var instance = new Foo();
+            Console.WriteLine("Sem reflection: {0}", s.Elapsed);
 
-            lambda(instance, 42);
-            Console.WriteLine(instance.PropertyA);
+            s.Restart();
+            for (int i = 0; i < 5000000; i++)
+                lambda.Invoke(i);
+
+            Console.WriteLine("Com reflection: {0}", s.Elapsed);
         }
     }
 }
