@@ -38,36 +38,31 @@
       <Field Name="type" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAgAAABAAAAAQAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAgAAABAAAAAAAAAAEAAAA=</HashCode>
       <FileName>FixedColumnsSerializer.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Type" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="ReflectionExample.PropertyWrapper">
     <Position X="7" Y="3" Width="1.5" />
     <Members>
-      <Method Name="ExtractFieldAttribute" Hidden="true" />
       <Field Name="fieldDescriptor" Hidden="true" />
       <Field Name="property" Hidden="true" />
       <Method Name="PropertyWrapper" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAAAAAAAAgAAASgAAAAAAAgAQAAIAAAAAk=</HashCode>
+      <HashCode>AAAAAAAECAAAAAAAAAgAAAQgAAAAAAAgAIAAIAgAAAE=</HashCode>
       <FileName>PropertyWrapper.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ReflectionExample.TypeWrapper">
     <Position X="4.25" Y="3.5" Width="1.5" />
     <Members>
-      <Method Name="ExtractProperties" Hidden="true" />
       <Field Name="properties" Hidden="true" />
       <Field Name="type" Hidden="true" />
       <Method Name="TypeWrapper" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAIABAAEAAAAAAAAAAAQAAAgAAAhAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAAAAEAAgAAAAAAAAQAAAgAAABAAEAAAAAAAAAAAA=</HashCode>
       <FileName>TypeWrapper.cs</FileName>
     </TypeIdentifier>
   </Class>
