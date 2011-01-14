@@ -37,12 +37,12 @@ namespace ReflectionExample.Listagens
 
         public static void Test()
         {
+            var obj = new Remessa();
+            var s = new Stopwatch();
+            
             var serializer1 = new FixedColumnsSerializer(typeof(Remessa));
             var writer1 = new StringWriter();
-
-            var obj = new Remessa();
-
-            var s = Stopwatch.StartNew();
+            s.Restart();
             for (int i = 0; i < 1000000; i++)
                 serializer1.Write(writer1, obj);
             Console.WriteLine(s.Elapsed);
