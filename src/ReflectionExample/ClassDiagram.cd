@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ReflectionExample.DateFieldAttribute">
-    <Position X="0.75" Y="3.75" Width="2.5" />
+    <Position X="1.5" Y="3.75" Width="2" />
     <Members>
       <Method Name="ConvertFromString" Hidden="true" />
       <Method Name="ConvertToString" Hidden="true" />
@@ -13,7 +13,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ReflectionExample.FieldAttribute">
-    <Position X="1.25" Y="1.75" Width="1.5" />
+    <Position X="1.75" Y="2.25" Width="1.5" />
     <Members>
       <Method Name="ConvertFromString" Hidden="true" />
       <Method Name="ConvertToString" Hidden="true" />
@@ -32,22 +32,28 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ReflectionExample.FixedColumnsSerializer">
-    <Position X="4" Y="1.5" Width="2" />
+    <Position X="4" Y="0.5" Width="2" />
     <Members>
       <Method Name="FixedColumnsSerializer" Hidden="true" />
-      <Field Name="type" Hidden="true" />
     </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAEAAAAAAgAAABAAAAAAAAAAEAAAA=</HashCode>
       <FileName>FixedColumnsSerializer.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="type" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="ReflectionExample.PropertyWrapper">
-    <Position X="7" Y="3" Width="1.5" />
+    <Position X="7" Y="2.25" Width="1.5" />
     <Members>
+      <Method Name="ExtractFieldAttributeFrom" Hidden="true" />
       <Field Name="fieldDescriptor" Hidden="true" />
+      <Field Name="getFrom" Hidden="true" />
+      <Method Name="Optimize" Hidden="true" />
       <Field Name="property" Hidden="true" />
       <Method Name="PropertyWrapper" Hidden="true" />
+      <Field Name="setTo" Hidden="true" />
     </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAECAAAAAAAAAgAAAQgAAAAAAAgAIAAIAgAAAE=</HashCode>
@@ -55,9 +61,11 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ReflectionExample.TypeWrapper">
-    <Position X="4.25" Y="3.5" Width="1.5" />
+    <Position X="4.25" Y="2.75" Width="1.5" />
     <Members>
-      <Field Name="properties" Hidden="true" />
+      <Field Name="activator" Hidden="true" />
+      <Method Name="ExtractPropertiesFrom" Hidden="true" />
+      <Method Name="Optimize" Hidden="true" />
       <Field Name="type" Hidden="true" />
       <Method Name="TypeWrapper" Hidden="true" />
     </Members>
@@ -65,9 +73,12 @@
       <HashCode>AAIAAAAEAAgAAAAAAAAQAAAgAAABAAEAAAAAAAAAAAA=</HashCode>
       <FileName>TypeWrapper.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="properties" />
+    </ShowAsCollectionAssociation>
   </Class>
-  <Interface Name="ReflectionExample.IField" Collapsed="true">
-    <Position X="1.25" Y="0.75" Width="1.5" />
+  <Interface Name="ReflectionExample.IField">
+    <Position X="1.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>IField.cs</FileName>

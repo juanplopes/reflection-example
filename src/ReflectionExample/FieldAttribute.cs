@@ -19,32 +19,32 @@ namespace ReflectionExample
             this.end = end;
         }
 
-public virtual void WriteTo(StringBuilder builder, object value)
-{
-    var stringValue = ConvertToString(value);
+        public virtual void WriteTo(StringBuilder builder, object value)
+        {
+            var stringValue = ConvertToString(value);
 
-    builder.Length = Math.Max(builder.Length, end);
-    WriteString(builder, stringValue);
-    WriteSpaces(builder, stringValue);
-}
+            builder.Length = Math.Max(builder.Length, end);
+            WriteString(builder, stringValue);
+            WriteSpaces(builder, stringValue);
+        }
 
-protected virtual string ConvertToString(object value)
-{
-    return Convert.ToString(value, CultureInfo.InvariantCulture);
-}
+        protected virtual string ConvertToString(object value)
+        {
+            return Convert.ToString(value, CultureInfo.InvariantCulture);
+        }
 
-private void WriteString(StringBuilder builder, string stringValue)
-{
-    for (int i = 0; i < Math.Min(stringValue.Length, Size); i++)
-        builder[start + i] = stringValue[i];
-}
+        private void WriteString(StringBuilder builder, string stringValue)
+        {
+            for (int i = 0; i < Math.Min(stringValue.Length, Size); i++)
+                builder[start + i] = stringValue[i];
+        }
 
-private void WriteSpaces(StringBuilder builder, string stringValue)
-{
+        private void WriteSpaces(StringBuilder builder, string stringValue)
+        {
 
-    for (int i = start + stringValue.Length; i < end; i++)
-        builder[i] = ' ';
-}
+            for (int i = start + stringValue.Length; i < end; i++)
+                builder[i] = ' ';
+        }
 
         public virtual object ReadFrom(string line, Type type)
         {
@@ -59,6 +59,6 @@ private void WriteSpaces(StringBuilder builder, string stringValue)
             return Convert.ChangeType(stringValue, type, CultureInfo.InvariantCulture);
         }
 
-        
+
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="..\GlobalInfo.cs">
       <Link>Properties\GlobalInfo.cs</Link>
     </Compile>
+    <Compile Include="Microbenchmark.cs" />
     <Compile Include="Listagem2.cs" />
     <Compile Include="Listagem6.cs" />
     <Compile Include="Listagem5.cs" />
@@ -59,6 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Listagem7.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReflectionExample\ReflectionExample.csproj">
+      <Project>{EE338D2C-D3F2-4315-B79F-E94D6988F196}</Project>
+      <Name>ReflectionExample</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

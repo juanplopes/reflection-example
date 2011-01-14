@@ -19,53 +19,61 @@ namespace ReflectionExample.UI
         public RemessasForm()
         {
             InitializeComponent();
-            NewFile();
+            Novo();
         }
 
-        private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void novoMenu_Click(object sender, EventArgs e)
         {
-            dataGridView1.CommitEdit(DataGridViewDataErrorContexts.Commit);
-            if (openFilePath == null && saveFile.ShowDialog() == DialogResult.OK)
-                openFilePath = saveFile.FileName;
-
-            if (openFilePath != null)
-                SaveFile(openFilePath);
+            Novo();
         }
 
-        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (openFile.ShowDialog() == DialogResult.OK)
-                OpenFile(openFile.FileName);
-        }
-
-        private void novoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NewFile();
-        }
-
-        private void SaveFile(string fileName)
-        {
-            using (var file = File.CreateText(fileName))
-                serializer.WriteAll(file, remessas.DataSource as IEnumerable);
-
-            OpenFile(fileName);
-        }
-
-        private void OpenFile(string fileName)
-        {
-            openFilePath = fileName;
-            this.Text = openFilePath;
-
-            using (var file = File.OpenText(openFilePath))
-                remessas.DataSource = serializer.ReadAll(file);
-        }
-
-        private void NewFile()
+        private void Novo()
         {
             openFilePath = null;
             this.Text = "novo";
             remessas.DataSource = new List<Remessa>();
         }
+
+        private void abrirMenu_Click(object sender, EventArgs e)
+        {
+            if (openFile.ShowDialog() == DialogResult.OK)
+                Abrir(openFile.FileName);
+        }
+
+
+        private void Abrir(string fileName)
+        {
+            openFilePath = fileName;
+            this.Text = openFilePath;
+
+            using (var file = File.OpenText(openFilePath))
+            {
+                remessas.CancelEdit();
+                remessas.DataSource = serializer.ReadAll(file);
+            }
+        }
+
+        private void salvarMenu_Click(object sender, EventArgs e)
+        {
+            grid.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            if (openFilePath == null && saveFile.ShowDialog() == DialogResult.OK)
+                openFilePath = saveFile.FileName;
+
+            if (openFilePath != null)
+                Salvar(openFilePath);
+        }
+
+        private void Salvar(string fileName)
+        {
+            using (var file = File.CreateText(fileName))
+                serializer.WriteAll(file, remessas.DataSource as IEnumerable);
+
+            Abrir(fileName);
+        }
+
+
+
+
 
 
 
