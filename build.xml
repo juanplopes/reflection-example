@@ -5,6 +5,7 @@
 	<TestAssembly>$(BuildDir)ReflectionExample.Tests.dll</TestAssembly>
 	
     <SourceDir>src\</SourceDir>
+	<PackageDir>pkg\</PackageDir>
     <Configuration>Release</Configuration>
     <Platform>Any CPU</Platform>
     <ProductVersion>1.0</ProductVersion>
@@ -37,6 +38,29 @@
     <MSBuild Projects="@(SolutionFile)" Properties="Configuration=$(Configuration);Platform=$(Platform);OutputPath=$(BuildDir)"/>
   </Target>
 
+  <Target Name="PackageSource" DependsOnTargets="Clean;GenerateAssemblyInfo">
+    <ItemGroup>
+      <ExcludeSrcDir Include=".\**\pkg\**"/>
+      <ExcludeSrcDir Include=".\**\bin\**"/>
+      <ExcludeSrcDir Include=".\**\build\**"/>
+      <ExcludeSrcDir Include=".\**\obj\**"/>
+      <ExcludeSrcDir Include=".\**\.svn\**"/>
+      <ExcludeSrcDir Include=".\**\_svn\**"/>
+      <ExcludeSrcDir Include=".\**\*.zip"/>
+      <ExcludeSrcDir Include=".\**\*.cache"/>
+	    <ExcludeSrcDir Include=".\.git\**"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ZipSrcDir Include=".\**\*" Exclude="@(ExcludeSrcDir)" />
+    </ItemGroup>
+
+    <MakeDir Directories="$(PackageDir)"/>
+
+    <Delete Files="$(PackageDir)\reflection-example-src.zip"/>
+    <Zip Files="@(ZipSrcDir)" ZipFileName="$(PackageDir)\reflection-example-src.zip" WorkingDirectory="$(MSBuildProjectDirectory)"/>
+  </Target>
+  
   <Target Name="Rebuild">
     <CallTarget Targets="Clean; Build"></CallTarget>
   </Target>
