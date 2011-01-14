@@ -38,20 +38,20 @@ namespace ReflectionExample.Listagens
         public static void Test()
         {
             var serializer1 = new FixedColumnsSerializer(typeof(Remessa));
-            var serializer2 = new BinaryFormatter();
             var writer1 = new StringWriter();
-            var writer2 = new MemoryStream((int)1e8);
 
             var obj = new Remessa();
 
             var s = Stopwatch.StartNew();
-            for (int i = 0; i < 100000; i++)
+            for (int i = 0; i < 1000000; i++)
                 serializer1.Write(writer1, obj);
             Console.WriteLine(s.Elapsed);
 
 
+            var writer2 = new MemoryStream((int)1e8);
+            var serializer2 = new BinaryFormatter();
             s.Restart();
-            for (int i = 0; i < 100000; i++)
+            for (int i = 0; i < 1000000; i++)
                 serializer2.Serialize(writer2, obj);
             Console.WriteLine(s.Elapsed);
         }
