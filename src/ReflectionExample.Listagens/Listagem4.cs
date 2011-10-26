@@ -12,20 +12,20 @@ namespace ReflectionExample.Listagens
     {
         public static void Test()
         {
-var foo = new Foo();
-var bar = typeof(Foo).GetMethod("Bar");
+            var foo = new Foo();
+            var bar = typeof(Foo).GetMethod("Bar");
 
-var s = Stopwatch.StartNew();
-for (int i = 0; i < 5000000; i++)
-    foo.Bar(i);
+            var s = Stopwatch.StartNew();
+            for (int i = 0; i < 5000000; i++)
+                foo.Bar(i);
 
-Console.WriteLine("Sem reflection: {0}", s.Elapsed);
+            Console.WriteLine("Sem reflection: {0}", s.Elapsed);
 
-s.Restart();
-for (int i = 0; i < 5000000; i++)
-    bar.Invoke(foo, new object[] { i });
+            s.Restart();
+            for (int i = 0; i < 5000000; i++)
+                bar.Invoke(foo, new object[] { i });
 
-Console.WriteLine("Com reflection: {0}", s.Elapsed);
+            Console.WriteLine("Com reflection: {0}", s.Elapsed);
         }
     }
 }
